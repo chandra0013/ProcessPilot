@@ -1,10 +1,20 @@
-ProcessPilot is a GenAI-powered BPA diagnostic co-pilot that automates the process discovery, use-case ranking, and ROI estimation pipeline — compressing the Value Finder diagnostic from days to hours, at enterprise scale, with consistent output quality.
-ProcessPilot — System Architecture
-Four-Agent Pipeline
-ProcessPilot deploys four specialized agents in a hierarchical LangGraph workflow, each with scoped tool access and output validators before handoff:
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+</div>
 
-•	ProcessIntelAgent — Ingests client process docs (SOPs, ERPs exports, ticketing dumps) via multi-format parser. Uses RAG over Techolution's BPA 4.0 domain corpus to extract process steps, exception paths, and manual touchpoints. Outputs a structured Process Graph.
-•	InefficencyHunterAgent — Runs pattern analysis over the Process Graph using a fine-tuned classifier trained on known BPA anti-patterns (approval bottlenecks, dual-entry, rule-based routing, manual QA gates). Scores each node for AI-replaceability with confidence intervals.
-•	ROIForecasterAgent — Maps each flagged inefficiency to a quantitative ROI model: time saved × FTE cost × error-reduction multiplier. Benchmarks against Techolution's historical case study database (42x efficiency precedent, 5s vs 120s QC improvements). Produces ranked use-case list with P10/P50/P90 ROI ranges.
-•	ReportSynthesisAgent — Generates the BPA Value Finder deliverable: executive summary, use-case roadmap, 30/60/90-day implementation plan, and risk-adjusted ROI forecast. Output is audit-ready, consultant-reviewable in < 20 minutes.
+# Run and deploy your AI Studio app
 
+This contains everything you need to run your app locally.
+
+View your app in AI Studio: https://ai.studio/apps/eb68511b-ffb6-4a48-9341-fea664868436
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

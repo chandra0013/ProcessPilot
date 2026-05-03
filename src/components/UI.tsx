@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, HTMLMotionProps } from 'motion/react';
 import { cn } from '@/src/lib/utils';
 
 interface CardProps {
@@ -15,7 +15,7 @@ export const Card = ({ children, className, title, subtitle }: CardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className={cn(
-        "bg-apex-card rounded-4xl p-8 card-shadow border border-black/5",
+        "bg-apex-card rounded-4xl p-8 card-shadow border border-black/5 text-apex-forest",
         className
       )}
     >
@@ -35,7 +35,7 @@ export const Button = ({
   variant = 'primary', 
   className, 
   ...props 
-}: React.ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'primary' | 'secondary' | 'outline' }) => {
+}: HTMLMotionProps<"button"> & { variant?: 'primary' | 'secondary' | 'outline' }) => {
   const variants = {
     primary: "bg-apex-forest text-white hover:bg-opacity-90",
     secondary: "bg-apex-mint-light text-apex-forest hover:bg-apex-mint",
