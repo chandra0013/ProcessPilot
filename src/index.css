@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-apex-forest: #1B4332;
+  --color-apex-mint: #B7E4C7;
+  --color-apex-mint-light: #D8F3DC;
+  --color-apex-bg: #F8F9FA;
+  --color-apex-text-muted: #52796F;
+  --color-apex-card: #FFFFFF;
+  --color-apex-red: #EF4444;
+  --color-apex-amber: #F59E0B;
+
+  --radius-4xl: 40px;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .card-shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .pending-stripes {
+    background: repeating-linear-gradient(
+      45deg,
+      #f3f4f6,
+      #f3f4f6 10px,
+      #ffffff 10px,
+      #ffffff 20px
+    );
+  }
+
+  .glass-header {
+    @apply bg-white/90 backdrop-blur-md border-b border-black/5;
+  }
+
+  .agent-active {
+    @apply bg-apex-mint-light border-l-4 border-apex-forest;
+  }
+
+  .pulse-dot {
+    @apply w-2 h-2 rounded-full bg-[#10B981];
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+}
+
+body {
+  @apply bg-apex-bg text-apex-forest font-sans selection:bg-apex-mint selection:text-apex-forest;
+}
+
+h1, h2, h3, .font-display {
+  @apply font-display tracking-tighter;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-apex-forest/10 rounded-full hover:bg-apex-forest/20 transition-colors;
+}
